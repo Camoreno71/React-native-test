@@ -1,45 +1,45 @@
 import React from "react";
-import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
-import Card from "../shared/components/Card";
-import { globalStyles } from "../styles/global";
+import { Image, SafeAreaView, Text, View } from "react-native";
 import useUserList from "./hooks/useUserList";
-import { ActivityIndicator } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { userDetailStyles } from "../styles/userDetail";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../navigation/MainStack";
 
-const UserDetail = () => {
-  const { data, isLoading } = useUserList();
-  const response = data ?? { results: [], count: 0 };
-  const { results } = response;
-  const navigation = useNavigation();
+type UserDetailProps = NativeStackScreenProps<RootStackParamList, "userDetail">;
 
-  if (isLoading) {
-    return <ActivityIndicator />;
-  }
+const UserDetail = ({ navigation, route }: UserDetailProps) => {
+  const { name, address, email, image, phoneNumber } = route.params;
   return (
-    <View style={globalStyles.container}>
-      {/* <Text>Te amo Maria!</Text> */}
-      <FlatList
-        data={results}
-        keyExtractor={(item, index) => item.id.value || index}
-        renderItem={({ item }) => {
-          return (
-            <TouchableOpacity
-            //   onPress={() => navigation.navigate("user-detail")}
-            >
-              <Card>
-                <Image
-                  style={globalStyles.pictures}
-                  source={{
-                    uri: item.picture.medium,
-                  }}
-                />
-                <Text style={globalStyles.text}>{item.name.first}</Text>
-              </Card>
-            </TouchableOpacity>
-          );
-        }}
-      />
-    </View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#f6f6f6" }}>
+      <View style={userDetailStyles.container}>
+        <View style={userDetailStyles.profile}>
+          <Image
+            alt=""
+            source={{
+              uri: image,
+            }}
+            style={userDetailStyles.userImageDetail}
+          />
+          <Text
+            style={userDetailStyles.profileName}
+          >{`${name.title} ${name.first} ${name.last}`}</Text>
+          <Text style={userDetailStyles.profileEmail}>{email}</Text>
+          <Text
+            style={userDetailStyles.profileEmail}
+          >{`País: ${address.country}`}</Text>
+          <Text
+            style={userDetailStyles.profileEmail}
+          >{`Ciudad: ${address.city}`}</Text>
+          <Text
+            style={userDetailStyles.profileEmail}
+          >{`Dirección: ${address.street.name} ${address.street.number}`}</Text>
+          <Text
+            style={userDetailStyles.profileEmail}
+          >{`Telefono: ${phoneNumber} `}</Text>
+        </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
