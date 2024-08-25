@@ -1,13 +1,12 @@
 import React from "react";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
-import Card from "../shared/components/Card";
 import { globalStyles } from "../styles/global";
 import useUserList from "./hooks/useUserList";
 import { ActivityIndicator } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "../navigation/MainStack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 import { Icon } from "react-native-elements";
+import Card from "../shared/components/Card";
 
 type UserListProps = NativeStackScreenProps<RootStackParamList, "userList">;
 
@@ -22,12 +21,12 @@ const UserList = ({ navigation }: UserListProps) => {
 
   return (
     <View style={globalStyles.container}>
-      <Icon
-        style={globalStyles.refreshIcon}
-        name="refresh"
-        size={65}
-        onPress={() => refetch()}
-      />
+      <TouchableOpacity onPress={() => refetch()} style={{ backgroundColor: isLoading ? "#878889" : "#6EB9F8", ...globalStyles.refreshButton }} >
+        <Text>{isLoading ? "Cargando" : "Cargar más"}</Text>
+        <Icon
+          name="refresh"
+        />
+      </TouchableOpacity>
       <FlatList
         data={results}
         keyExtractor={(item, index) => item.id.value || index}
@@ -51,7 +50,7 @@ const UserList = ({ navigation }: UserListProps) => {
                     uri: item.picture.medium,
                   }}
                 />
-                <Text style={globalStyles.text}>{item.name.first}</Text>
+                <Text style={globalStyles.text}>{`${item.name.title || ""} ${item.name.first || ""} ${item.name.last || ""}`}</Text>
               </Card>
             </TouchableOpacity>
           );

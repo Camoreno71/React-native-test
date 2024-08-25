@@ -1,7 +1,5 @@
 import React from "react";
 import { Image, SafeAreaView, Text, View } from "react-native";
-import useUserList from "./hooks/useUserList";
-import { useNavigation } from "@react-navigation/native";
 import { userDetailStyles } from "../styles/userDetail";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../navigation/MainStack";
@@ -23,8 +21,8 @@ const UserDetail = ({ navigation, route }: UserDetailProps) => {
           />
           <Text
             style={userDetailStyles.profileName}
-          >{`${name.title || ""} ${name.first || ""} ${name.last || ""}`}</Text>
-          <Text style={userDetailStyles.profileEmail || "N/A"}>{email}</Text>
+          ></Text>
+          <Text style={userDetailStyles.profileEmail }>{email || "N/A"}</Text>
           <Text
             style={userDetailStyles.profileEmail}
           >{`País: ${address.country || "N/A"}`}</Text>
@@ -35,8 +33,8 @@ const UserDetail = ({ navigation, route }: UserDetailProps) => {
             style={userDetailStyles.profileEmail}
           >{`Dirección: ${address.street.name || ""} ${address.street.number || ""}`}</Text>
           <Text
-            style={userDetailStyles.profileEmail || "N/A"}
-          >{`Telefono: ${phoneNumber} `}</Text>
+            style={userDetailStyles.profileEmail}
+          >{`Telefono: ${phoneNumber} `  || "N/A"}</Text>
         </View>
       </View>
     </SafeAreaView>
