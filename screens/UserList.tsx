@@ -29,7 +29,7 @@ const UserList = ({ navigation }: UserListProps) => {
             <TouchableOpacity
               onPress={() =>
                 navigation.navigate("userDetail", {
-                  image: item.picture.medium,
+                  image: item.picture.large,
                   name: item.name,
                   email: item.email,
                   phoneNumber: item.phone,
