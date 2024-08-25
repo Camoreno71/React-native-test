@@ -19,6 +19,7 @@ const UserList = ({ navigation }: UserListProps) => {
   if (isLoading) {
     return <ActivityIndicator />;
   }
+
   return (
     <View style={globalStyles.container}>
       <Icon
