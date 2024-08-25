@@ -8,8 +8,13 @@ React Native aplication
 - npm
 
 ## Available Scripts
+### `1. npm install`
 
-### `npm run start`
+Run to install all the project dependencies
+
+Ejecuta para instalar las dependencias del proyecto
+
+### `2. npm run start`
 
 Runs the app in the development mode
 
