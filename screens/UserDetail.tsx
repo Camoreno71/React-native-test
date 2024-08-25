@@ -23,19 +23,19 @@ const UserDetail = ({ navigation, route }: UserDetailProps) => {
           />
           <Text
             style={userDetailStyles.profileName}
-          >{`${name.title} ${name.first} ${name.last}`}</Text>
-          <Text style={userDetailStyles.profileEmail}>{email}</Text>
+          >{`${name.title || ""} ${name.first || ""} ${name.last || ""}`}</Text>
+          <Text style={userDetailStyles.profileEmail || "N/A"}>{email}</Text>
           <Text
             style={userDetailStyles.profileEmail}
-          >{`País: ${address.country}`}</Text>
+          >{`País: ${address.country || "N/A"}`}</Text>
           <Text
             style={userDetailStyles.profileEmail}
-          >{`Ciudad: ${address.city}`}</Text>
+          >{`Ciudad: ${address.city || "N/A"}`}</Text>
           <Text
             style={userDetailStyles.profileEmail}
-          >{`Dirección: ${address.street.name} ${address.street.number}`}</Text>
+          >{`Dirección: ${address.street.name || ""} ${address.street.number || ""}`}</Text>
           <Text
-            style={userDetailStyles.profileEmail}
+            style={userDetailStyles.profileEmail || "N/A"}
           >{`Telefono: ${phoneNumber} `}</Text>
         </View>
       </View>
