@@ -1,20 +1,21 @@
-# Interrapidismo React Native test
+# Interrapidismo assesment
+insterrapidisimo React native and NodeJs assesment
 
-React Native aplication
-
+# React Native test
 # Requeriments
 
-- NodeJs
+- NodeJs >= 18.0.0
 - npm
+- yarn
 
 ## Available Scripts
-### `1. npm install`
+### `1. yarn`
 
 Run to install all the project dependencies
 
 Ejecuta para instalar las dependencias del proyecto
 
-### `2. npm run start`
+### `2. yarn start`
 
 Runs the app in the development mode
 
@@ -24,4 +25,48 @@ You can install an android emulator with android studio or you can download the 
 
 Puedes instalar un emulador de android con android studio o puedes descargar en tu telefono la app expo go, una vez instalada al escanear el codigo QR que aparece en la terminal podras ver la aplicación
 
-![alt text](image-2.png)
+
+# NodeJs test
+
+## Requeriments
+- NodeJs >= 18.0.0
+- npm
+- yarn
+
+### Available Scripts
+#### `1. yarn`
+
+Run to install all the project dependencies
+
+Ejecuta para instalar las dependencias del proyecto
+
+#### `2. yarn dev`
+
+Run the NodeJs local server on [http://localhost:3000](http://localhost:3000)
+
+Ejecute el servidor local de NodeJs en [http://localhost:3000](http://localhost:3000)
+
+You can use Postman to test the endpoints.\
+Puedes utilizar Postman para probar los servicios.
+
+### Endpoints
+
+GET [http://localhost:3000/task](http://localhost:3000/task)
+
+Endpoint to get the list of task.\
+Servicio para obtener la lista de tareas.
+
+POST [http://localhost:3000/task](http://localhost:3000/task)
+
+Endpoint to create new task.\
+Servicio para obtener crear nuevas tareas.
+
+PUT [http://localhost:3000/task/:id](http://localhost:3000/task)
+
+Endpoint to edit new task.\
+Servicio para editar tareas existentes.
+
+DELETE [http://localhost:3000/task/:id](http://localhost:3000/task)
+
+Endpoint to delete task.\
+Servicio para eliminar tareas existentes.
