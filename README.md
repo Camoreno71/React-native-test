@@ -2,6 +2,9 @@
 insterrapidisimo React native and NodeJs assesment
 
 # React Native test
+Open a terminal in the current project location and move to the path ./src/reactNativeApp
+
+Abrir una terminal en la ubicacion actual del proyecto y mover a la ruta ./src/reactNativeApp
 # Requeriments
 
 - NodeJs >= 18.0.0
@@ -27,7 +30,9 @@ Puedes instalar un emulador de android con android studio o puedes descargar en 
 
 
 # NodeJs test
+Open a terminal in the current project location and move to the path ./src/api
 
+Abrir una terminal en la ubicacion actual del proyecto y mover a la ruta ./src/api
 ## Requeriments
 - NodeJs >= 18.0.0
 - npm
