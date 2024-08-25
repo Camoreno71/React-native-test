@@ -7,11 +7,12 @@ import { ActivityIndicator } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "../navigation/MainStack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack/lib/typescript/src/types";
+import { Icon } from "react-native-elements";
 
 type UserListProps = NativeStackScreenProps<RootStackParamList, "userList">;
 
 const UserList = ({ navigation }: UserListProps) => {
-  const { data, isLoading } = useUserList();
+  const { data, isLoading, refetch } = useUserList();
   const response = data ?? { results: [], count: 0 };
   const { results } = response;
 
@@ -20,7 +21,12 @@ const UserList = ({ navigation }: UserListProps) => {
   }
   return (
     <View style={globalStyles.container}>
-      {/* <Text>Te amo Maria!</Text> */}
+      <Icon
+        style={globalStyles.refreshIcon}
+        name="refresh"
+        size={65}
+        onPress={() => refetch()}
+      />
       <FlatList
         data={results}
         keyExtractor={(item, index) => item.id.value || index}
@@ -32,7 +38,7 @@ const UserList = ({ navigation }: UserListProps) => {
                   image: item.picture.large,
                   name: item.name,
                   email: item.email,
-                  phoneNumber: item.phone,
+                  phoneNumber: item.cell,
                   address: item.location,
                 })
               }

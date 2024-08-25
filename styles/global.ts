@@ -14,4 +14,9 @@ export const globalStyles = StyleSheet.create({
     textAlign: "center",
     fontSize: 40,
   },
+  refreshIcon: {
+    width: 60,
+    height: 60,
+    textAlign: "left",
+  },
 });
