@@ -45,7 +45,13 @@ const MainStack = () => {
             title: "Lista de usuarios",
           }}
         />
-        <Stack.Screen name="userDetail" component={UserDetail} />
+        <Stack.Screen
+          name="userDetail"
+          component={UserDetail}
+          options={{
+            title: "Detalle",
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
